@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<section class="split-view">
+	
+	<section class="form">
+	{% if message %}
+			<p>{{message}}</p>
+	{% endif %}
+		<form method="POST">
+			{{ form.csrf_token }}
+			<p>{{ form.ai_status }}</p>
+			<p>{{ form.text }}<p/>
+			<p>{{ form.permission }} {{ form.permission.label }}<p/>
+			{{ form.submit }}
+		</form>
+	</section>
+	<section class="results">
+		<h2>Essays Wanted!</h2>
+		<p>
+			Help us build a corpus! Feel free to donate both AI and human 
+			written essays. We will include these in our training data for
+			future models.
+		</p>
+		<p>
+			Please note that we do are best to protect your privacy, but 
+			please <strong>do not</strong> submit text containing sensitive information such
+			as addresses, social security numbers, or other personally 
+			identifiable information. 
+		</p>
+		<p>
+			If you would like to delete your submission, please send us an
+			email with a copy of the submission number somewhere in the email,
+			and we will do our best to remove your entry.
+		<p>
+			<strong>Please do not donate copy written work!</strong>
+		</p>
+	</section>
+<section>
+
+{% endblock %}

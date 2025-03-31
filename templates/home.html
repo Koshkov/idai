@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<section class="split-view">
+	<section class="form">
+		<form method="POST">
+			{{form.csrf_token}}
+			{{form.text}}
+			{{form.submit}}
+		</form>
+	</section>
+	<section>
+		<section class="results">
+			<h2>( Results )=</h2>
+			{% if message %}
+			<strong>Human Probability:</strong>
+			 <div class="bar-border">
+  				<div  style="background-color:lightblue; height:24px;width:{{message['human']}}%">
+					{{message['human']}}%
+				</div>
+			</div>
+			<strong>AI Probability:</strong>
+			<div class="bar-border">
+  				<div  style="background-color: orange; height:24px;width:{{message['ai']}}%">
+					{{message['ai']}}%
+				</div>
+			</div>
+			<p> 
+			{% else %}
+			<p>Please enter an essay in the text box and click Detect!</p>
+			{% endif %}
+		</section>
+
+		<section style="margin-top: 1em; margin-bottom:1em;" class="results">
+			<h2>( Current Model )=</h2>
+			<strong>Type:</strong> Support Vector Machine<br/>
+			<strong>Embedding:</strong> TF-IDF<br/>
+			<strong>Accuracy:</strong> 88.95%<br/>
+		</section>
+	</section>
+</section>
+{% endblock %}

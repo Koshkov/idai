@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block styles %}
+		<link rel="stylesheet" type="text/css" 
+							   href="{{url_for('.static', filename='style.css')}}" />
+
+		{% endblock %}
+		<title>Demo</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<strong>( AI Detector ) :</strong>
+				<a href="/">detect</a> : 
+				<a href="/about">about</a> :
+				<a href="/contribute">contribute</a>
+			<nav>
+		</header>
+		<main>
+			{% block body %}
+			{% endblock %}
+		</main>
+		<footer>
+			<strong>CC 4.0 BY-SA 2025 : <a href="https://github.com/celestialeo/INFS630-Project">GitHub</a></strong>
+		</footer>
+	</body>
+</html>
